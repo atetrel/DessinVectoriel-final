@@ -1,5 +1,6 @@
 package Actions;
 
+import figure.Figure;
 import outils.Crayon;
 import visitor.ActionVisitor;
 
@@ -10,6 +11,6 @@ import java.awt.*;
  */
 public interface Actions {
 
-    void remplir(Crayon crayon);
+    void apply(Figure f);
 
 }

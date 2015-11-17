@@ -7,6 +7,4 @@ import figure.Cercle;
  */
 public interface ActionVisitor {
 
-    void remplir(Cercle c);
-
 }

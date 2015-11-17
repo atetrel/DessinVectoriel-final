@@ -7,7 +7,7 @@ import figure.Point;
 /**
  * Created by tetrel on 17/11/15.
  */
-public class SVG implements FigureVisitor, ActionVisitor {
+public class SVG implements FigureVisitor {
     public static SVG INSTANCE;
 
     public SVG() {}
@@ -24,12 +24,7 @@ public class SVG implements FigureVisitor, ActionVisitor {
     }
 
     @Override
-    public void visit(Segment l) {
-
-    }
-
-    @Override
-    public void remplir(Cercle c) {
+    public void visit(Segment l)      {
 
     }
 }

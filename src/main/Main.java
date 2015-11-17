@@ -1,5 +1,6 @@
 package main;
 
+import Actions.Remplissage;
 import figure.Cercle;
 import figure.Point;
 import visitor.SVG;
@@ -18,6 +19,8 @@ public class Main {
         double rayon = 10;
         Point centre = new Point (x,y);
         Cercle c = new Cercle(centre, rayon);
+
+        new Remplissage().apply(c);
 
         d.add(centre);
         d.add(c);
