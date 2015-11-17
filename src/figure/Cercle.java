@@ -1,6 +1,7 @@
 package figure;
 
 import Actions.Actions;
+import outils.Crayon;
 import visitor.ActionVisitor;
 import visitor.FigureVisitor;
 
@@ -21,8 +22,4 @@ public class Cercle implements Figure, Actions {
         fv.visit(this);
     }
 
-    @Override
-    public void remplir(ActionVisitor av) {
-        av.remplir(this);
-    }
 }
