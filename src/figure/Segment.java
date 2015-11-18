@@ -11,9 +11,16 @@ public class Segment extends Figure {
 
     public Segment(Point depart, Point arrivee) {
         super();
-        this.getOptions().put("name","line");
         this.depart = depart;
         this.arrivee = arrivee;
+    }
+
+    public Point getDepart() {
+        return depart;
+    }
+
+    public Point getArrivee() {
+        return arrivee;
     }
 
     @Override

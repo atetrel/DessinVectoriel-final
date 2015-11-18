@@ -41,15 +41,20 @@ public class VML extends FigureVisitor {
 
     @Override
     public void visit(Cercle c) {
-        contenu += "<v:"+c.getOptions().get("name")+"> \n";
+
+        contenu += "<v:arc \n";
 
 
         for (Map.Entry<String, String> entry : c.getOptions().entrySet())
         {
-            contenu += entry.getKey()+"=\""+entry.getValue()+"\" ";
+            if (entry.getKey()!="name") {
+                contenu += entry.getKey() + "=\"" + entry.getValue() + "\" ";
+            }
         }
 
-        contenu += "\n</v:"+c.getOptions().get("name")+">";
+        contenu += "\nstartangle=\"0\" endangle=\"360\"";
+
+        contenu += ">\n</v:arc>\n";
     }
 
 
@@ -64,7 +69,21 @@ public class VML extends FigureVisitor {
 
     @Override
     public void visit(Segment l) {
-        contenu += l.getContenu();
+        contenu += "<v:line \n";
+
+        for (Map.Entry<String, String> entry : l.getOptions().entrySet())
+        {
+            if (entry.getKey()!="name") {
+                contenu += entry.getKey() + "=\"" + entry.getValue() + "\" ";
+            }
+        }
+        Point p1 = l.getDepart();
+        Point p2 = l.getArrivee();
+
+        contenu += "from=\""+p1.getAbscisse()+","+p1.getOrdonnee()+"\n to=\""+p2.getAbscisse()+","+p2.getOrdonnee()+"\">\n";
+
+        contenu += "</v:line>\n";
+
     }
 
 }

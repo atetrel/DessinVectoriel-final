@@ -14,7 +14,6 @@ public class Cercle extends Figure {
 
     public Cercle(Point centre, double rayon) {
         super();
-        this.getOptions().put("name","arc");
         this.centre = centre;
         this.rayon = rayon;
     }

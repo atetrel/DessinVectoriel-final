@@ -61,4 +61,10 @@ public abstract class Figure implements IFigure{
     }
 
 
+
+    public void ajouterParametre (String key, String value) {
+        getOptions().put(key,value);
+    }
+
+
 }

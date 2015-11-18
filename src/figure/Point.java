@@ -11,9 +11,16 @@ public class Point extends Figure {
 
     public Point(double abscisse, double ordonnee) {
         super();
-        this.getOptions().put("name","point");
         this.abscisse = abscisse;
         this.ordonnee = ordonnee;
+    }
+
+    public double getAbscisse() {
+        return abscisse;
+    }
+
+    public double getOrdonnee() {
+        return ordonnee;
     }
 
     @Override
