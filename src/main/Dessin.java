@@ -1,9 +1,9 @@
 package main;
 
 import figure.Figure;
+import figure.IFigure;
 import visitor.FigureVisitor;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -37,7 +37,6 @@ public class Dessin {
         for (Figure f : figures) {
             f.accept(fv);
         }
-
     }
 
 }

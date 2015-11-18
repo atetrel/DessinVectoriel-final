@@ -1,9 +1,11 @@
 package main;
 
-import Actions.Remplissage;
 import figure.Cercle;
 import figure.Point;
-import visitor.SVG;
+import outils.Crayon;
+import visitor.VML;
+
+import java.awt.*;
 
 /**
  * Created by tetrel on 17/11/15.
@@ -20,12 +22,17 @@ public class Main {
         Point centre = new Point (x,y);
         Cercle c = new Cercle(centre, rayon);
 
-        new Remplissage().apply(c);
+        c.coloriser(Color.BLACK);
+        c.modifierTrait(Crayon.getDefaultCrayon());
 
         d.add(centre);
         d.add(c);
 
-        d.draw(new SVG());
+        VML type = new VML();
+
+        d.draw(type);
+
+        System.out.println(type.display());
 
     }
 

@@ -1,18 +1,20 @@
 package figure;
 
-import Actions.Actions;
-import outils.Crayon;
-import visitor.ActionVisitor;
 import visitor.FigureVisitor;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by tetrel on 17/11/15.
  */
-public class Cercle implements Figure, Actions {
+public class Cercle extends Figure {
     private Point centre;
     private double rayon;
 
     public Cercle(Point centre, double rayon) {
+        super();
+        this.getOptions().put("name","arc");
         this.centre = centre;
         this.rayon = rayon;
     }
