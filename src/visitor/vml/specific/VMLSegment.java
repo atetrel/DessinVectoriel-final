@@ -18,7 +18,7 @@ public class VMLSegment extends SpecificVisitor {
     public void specificVisit(Figure f) {
         Segment segment  = (Segment) f;
         String s = this.visit(segment);
-        System.out.println(s);
+        this.ecrireDansFichier(s);
     }
 
 

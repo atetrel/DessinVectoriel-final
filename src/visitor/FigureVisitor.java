@@ -12,6 +12,12 @@ import java.awt.*;
  */
 public abstract class FigureVisitor {
 
+    public abstract String getEntete();
+
+    public abstract String getContenu();
+
+    public abstract String getPied();
+
     public void visit(Figure f){
         String languageName = this.getClass().getSimpleName();
         String figureName = f.getClass().getSimpleName();

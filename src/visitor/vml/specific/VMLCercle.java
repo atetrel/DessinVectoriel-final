@@ -24,13 +24,9 @@ public class VMLCercle extends SpecificVisitor {
 
     public String visit(Cercle c) {
 
-
-
-
         String contenu = "";
 
         contenu += "<v:arc \n";
-
 
         for (Map.Entry<String, String> entry : c.getOptions().entrySet())
         {

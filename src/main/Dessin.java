@@ -36,9 +36,13 @@ public class Dessin {
 
     void draw (FigureVisitor fv) {
         FileHandler fh = new FileHandler(fv.getClass().getSimpleName().toLowerCase());
+        FileHandler.STATIC_ACCESS.ecrireDansFichier(fv.getEntete());
         for (Figure f : figures) {
             f.accept(fv);
         }
+        FileHandler.STATIC_ACCESS.ecrireDansFichier(fv.getContenu());
+        FileHandler.STATIC_ACCESS.ecrireDansFichier(fv.getPied());
+
         fh.close();
     }
 

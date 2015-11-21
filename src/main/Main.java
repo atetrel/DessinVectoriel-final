@@ -25,8 +25,8 @@ public class Main {
         Point centre = new Point (x,y);
         Cercle c = new Cercle(centre, rayon);
 
-//        Segment s = new Segment(new Point(0,0),new Point(10,10));
-//        d.add(s);
+        Segment s = new Segment(new Point(0,0),new Point(10,10));
+        d.add(s);
 //
 //        c.coloriser(Color.BLACK);
 //        c.modifierTrait(Crayon.getDefaultCrayon());
@@ -36,10 +36,6 @@ public class Main {
         d.add(c);
 
         FigureVisitor type = new VML();
-
-        d.draw(type);
-
-        type = new SVG();
 
         d.draw(type);
 
