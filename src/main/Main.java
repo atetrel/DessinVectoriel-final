@@ -2,15 +2,12 @@ package main;
 
 import figure.Cercle;
 import figure.Point;
-import figure.Segment;
-import ordre.Dessiner;
+import ordre.dessin.Dessiner;
 import ordre.IOrdre;
-import outils.Crayon;
+import ordre.dessin.Remplir;
 import visitor.FigureVisitor;
 import visitor.svg.SVG;
 import visitor.vml.VML;
-
-import java.awt.*;
 
 /**
  * Created by tetrel on 17/11/15.
@@ -26,8 +23,7 @@ public class Main {
         double rayon = 10;
         Point centre = new Point (x,y);
         Cercle c = new Cercle(centre, rayon);
-        IOrdre dessinerCercle = new Dessiner(c);
-
+        IOrdre dessinerCercle = new Remplir(c,"bleu");
 
         d.add(dessinerCercle);
 
@@ -35,9 +31,7 @@ public class Main {
 
         d.draw(type);
 
-        type = new SVG();
 
-        d.draw(type);
 
 
 

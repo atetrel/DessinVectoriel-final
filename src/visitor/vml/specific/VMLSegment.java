@@ -6,16 +6,17 @@ import figure.Point;
 import figure.Segment;
 import visitor.SpecificVisitor;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by tetrel on 21/11/15.
  */
-public class VMLSegment extends SpecificVisitor {
+public class VMLSegment extends VMLSpecifc {
 
 
     @Override
-    public void specificVisit(Figure f) {
+    public void specificVisit(Figure f, HashMap<String,String> h) {
         Segment segment  = (Segment) f;
         String s = this.visit(segment);
         this.ecrireDansFichier(s);

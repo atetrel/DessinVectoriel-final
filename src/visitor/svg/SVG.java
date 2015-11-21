@@ -33,6 +33,16 @@ public class SVG extends FigureVisitor {
         return pied;
     }
 
+    @Override
+    public void initierEcriture() {
+
+    }
+
+    @Override
+    public void finirEcriture() {
+
+    }
+
     public void setPied(String pied) {
         this.pied = pied;
     }

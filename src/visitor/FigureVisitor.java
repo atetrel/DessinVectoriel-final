@@ -7,6 +7,7 @@ import figure.Point;
 import outils.FileHandler;
 
 import java.awt.*;
+import java.util.HashMap;
 
 /**
  * Created by tetrel on 17/11/15.
@@ -19,7 +20,7 @@ public abstract class FigureVisitor {
 
     public abstract String getPied();
 
-    public void visit(Figure f){
+    public void visit(Figure f, HashMap<String,String> h){
         String languageName = this.getClass().getSimpleName();
         String figureName = f.getClass().getSimpleName();
         String specificVisitor = "visitor."+languageName.toLowerCase()+".specific."+languageName+figureName;
@@ -27,7 +28,7 @@ public abstract class FigureVisitor {
         Object myInstance = null;
         try {
             myInstance = (Class.forName(specificVisitor).newInstance());
-            ((SpecificVisitor)(myInstance)).specificVisit(f);
+            ((SpecificVisitor)(myInstance)).specificVisit(f,h);
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {

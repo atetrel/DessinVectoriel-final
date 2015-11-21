@@ -19,8 +19,8 @@ public class Cercle extends Figure {
     }
 
     @Override
-    public void accept(FigureVisitor fv) {
-        fv.visit(this);
+    public void accept(FigureVisitor fv,HashMap<String,String> parameters) {
+        fv.visit(this,parameters);
     }
 
 }
