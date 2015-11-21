@@ -9,22 +9,17 @@ import visitor.FigureVisitor;
  */
 public class VML extends FigureVisitor {
     private String entete;
-    private String pied;
     private String contenu;
 
     public VML() {
-        this.entete = "";
+        this.entete = "<style>v\\: * { behavior:url(#default#VML); display:inline-block }</style>\n<xml:namespace ns=\"urn:schemas-microsoft-com:vml\" prefix=\"v\" />";
         this.contenu = "";
-        this.pied = "";
     }
 
     public String getEntete() {
         return entete;
     }
 
-    public String getPied() {
-        return pied;
-    }
 
     public String getContenu() {
         return contenu;
