@@ -24,7 +24,7 @@ public class VMLCercle extends SpecificVisitor {
 
     public String visit(Cercle c) {
 
-        System.out.println("Je trace un cercle en VML");
+
 
 
         String contenu = "";
