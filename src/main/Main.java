@@ -4,7 +4,7 @@ import figure.Cercle;
 import figure.Point;
 import figure.Segment;
 import outils.Crayon;
-import visitor.VML;
+import visitor.vml.VML;
 
 import java.awt.*;
 
@@ -23,21 +23,20 @@ public class Main {
         Point centre = new Point (x,y);
         Cercle c = new Cercle(centre, rayon);
 
-        Segment s = new Segment(new Point(0,0),new Point(10,10));
-        d.add(s);
-
-        c.coloriser(Color.BLACK);
-        c.modifierTrait(Crayon.getDefaultCrayon());
-        c.ajouterParametre("style","top:10;left:10;width:200;height:200");
-
-        d.add(centre);
+//        Segment s = new Segment(new Point(0,0),new Point(10,10));
+//        d.add(s);
+//
+//        c.coloriser(Color.BLACK);
+//        c.modifierTrait(Crayon.getDefaultCrayon());
+//        c.ajouterParametre("style","top:10;left:10;width:200;height:200");
+//
+//        d.add(centre);
         d.add(c);
 
         VML type = new VML();
 
         d.draw(type);
 
-        System.out.println(type.display());
 
     }
 

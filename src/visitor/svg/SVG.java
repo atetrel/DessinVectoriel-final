@@ -1,14 +1,15 @@
-package visitor;
+package visitor.svg;
 
 
 import figure.Cercle;
 import figure.Segment;
 import figure.Point;
+import visitor.FigureVisitor;
 
 /**
  * Created by tetrel on 17/11/15.
  */
-public class SVG extends FigureVisitor {
+public class SVG {
     private String entete;
     private String pied;
     private String contenu;
@@ -44,17 +45,17 @@ public class SVG extends FigureVisitor {
         this.contenu = contenu;
     }
 
-    @Override
+
     public void visit(Cercle c) {
         System.out.println("ajouter cercle");
     }
 
-    @Override
+
     public void visit (Point p) {
         System.out.println("Ajouter point");
     }
 
-    @Override
+
     public void visit(Segment l) {
     }
 

@@ -12,12 +12,23 @@ import java.awt.*;
  */
 public abstract class FigureVisitor {
 
-    public abstract void visit(Cercle c);
+    public void visit(Figure f){
+        String languageName = this.getClass().getSimpleName();
+        String figureName = f.getClass().getSimpleName();
+        String specificVisitor = "visitor."+languageName.toLowerCase()+".specific."+languageName+figureName;
+        Object myInstance = null;
+        System.out.println(specificVisitor);
+        try {
+            myInstance = (Class.forName(specificVisitor).newInstance());
+            ((SpecificVisitor)(myInstance)).specificVisit(f);
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
-    public abstract void visit(Point p);
-
-    public abstract void visit(Segment l);
-
-    public abstract String display();
 
 }
