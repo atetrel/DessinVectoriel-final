@@ -4,6 +4,7 @@ import figure.Cercle;
 import figure.Figure;
 import figure.Segment;
 import figure.Point;
+import outils.FileHandler;
 
 import java.awt.*;
 
@@ -34,6 +35,13 @@ public abstract class FigureVisitor {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public abstract void initierEcriture();
+    public abstract void finirEcriture();
+
+    public void ecrireDansFichier(String content){
+        FileHandler.STATIC_ACCESS.ecrireDansFichier(content);
     }
 
 

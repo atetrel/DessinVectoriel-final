@@ -31,4 +31,14 @@ public class VML extends FigureVisitor {
     public String getPied() {
         return pied;
     }
+
+    @Override
+    public void initierEcriture() {
+        this.ecrireDansFichier(getEntete());
+    }
+
+    @Override
+    public void finirEcriture() {
+        this.ecrireDansFichier(getPied());
+    }
 }

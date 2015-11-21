@@ -4,6 +4,7 @@ import figure.Figure;
 import figure.IFigure;
 import outils.FileHandler;
 import visitor.FigureVisitor;
+import ordre.IOrdre;
 
 import java.util.ArrayList;
 
@@ -14,35 +15,34 @@ public class Dessin {
     String name;
     int width;
     int height;
-    ArrayList<Figure> figures;
+    ArrayList<IOrdre> ordres;
 
-    public Dessin(String name, int width, int height, ArrayList<Figure> figures) {
+    public Dessin(String name, int width, int height, ArrayList<IOrdre> ordres) {
         this.name = name;
         this.width = width;
         this.height = height;
-        this.figures = figures;
+        this.ordres = ordres;
     }
 
     public Dessin(String name, int width, int height) {
         this.name = name;
         this.width = width;
         this.height = height;
-        this.figures = new ArrayList<Figure>();
+        this.ordres = new ArrayList<IOrdre>();
     }
 
-    void add (Figure f) {
-        figures.add(f);
+    void add (IOrdre f) {
+        ordres.add(f);
     }
 
     void draw (FigureVisitor fv) {
-        FileHandler fh = new FileHandler(fv.getClass().getSimpleName().toLowerCase());
-        FileHandler.STATIC_ACCESS.ecrireDansFichier(fv.getEntete());
-        for (Figure f : figures) {
-            f.accept(fv);
-        }
-        FileHandler.STATIC_ACCESS.ecrireDansFichier(fv.getContenu());
-        FileHandler.STATIC_ACCESS.ecrireDansFichier(fv.getPied());
 
+        FileHandler fh = new FileHandler(fv.getClass().getSimpleName().toLowerCase());
+        fv.initierEcriture();
+        for (IOrdre o : ordres) {
+            o.executer(fv); // Ceci écrit déjà dans le fichier le contenu
+        }
+        fv.finirEcriture();
         fh.close();
     }
 
