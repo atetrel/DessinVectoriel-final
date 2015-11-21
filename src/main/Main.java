@@ -4,6 +4,8 @@ import figure.Cercle;
 import figure.Point;
 import figure.Segment;
 import outils.Crayon;
+import visitor.FigureVisitor;
+import visitor.svg.SVG;
 import visitor.vml.VML;
 
 import java.awt.*;
@@ -33,9 +35,14 @@ public class Main {
 //        d.add(centre);
         d.add(c);
 
-        VML type = new VML();
+        FigureVisitor type = new VML();
 
         d.draw(type);
+
+        type = new SVG();
+
+        d.draw(type);
+
 
 
     }

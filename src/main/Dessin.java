@@ -2,6 +2,7 @@ package main;
 
 import figure.Figure;
 import figure.IFigure;
+import outils.FileHandler;
 import visitor.FigureVisitor;
 
 import java.util.ArrayList;
@@ -34,9 +35,11 @@ public class Dessin {
     }
 
     void draw (FigureVisitor fv) {
+        FileHandler fh = new FileHandler(fv.getClass().getSimpleName().toLowerCase());
         for (Figure f : figures) {
             f.accept(fv);
         }
+        fh.close();
     }
 
 }

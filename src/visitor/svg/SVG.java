@@ -9,7 +9,7 @@ import visitor.FigureVisitor;
 /**
  * Created by tetrel on 17/11/15.
  */
-public class SVG {
+public class SVG extends FigureVisitor {
     private String entete;
     private String pied;
     private String contenu;

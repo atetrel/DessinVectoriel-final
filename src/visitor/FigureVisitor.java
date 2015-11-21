@@ -16,8 +16,8 @@ public abstract class FigureVisitor {
         String languageName = this.getClass().getSimpleName();
         String figureName = f.getClass().getSimpleName();
         String specificVisitor = "visitor."+languageName.toLowerCase()+".specific."+languageName+figureName;
+
         Object myInstance = null;
-        System.out.println(specificVisitor);
         try {
             myInstance = (Class.forName(specificVisitor).newInstance());
             ((SpecificVisitor)(myInstance)).specificVisit(f);
