@@ -12,10 +12,11 @@ import java.util.Map;
  */
 public interface IFigure {
 
-   // void accept(FigureVisitor fv);
-
     void accept(FigureVisitor fv, HashMap<String,String> parameters);
 
-    void coloriser (Color color);
+    void changeSize(double percentage);
+
+    public void translate(double abs,double ord);
+
 
 }

@@ -1,4 +1,4 @@
-package figure;
+package figure.ouverte;
 
 import visitor.FigureVisitor;
 
@@ -7,7 +7,7 @@ import java.util.HashMap;
 /**
  * Created by tetrel on 17/11/15.
  */
-public class Segment extends Figure {
+public class Segment extends FigureOuverte {
     Point depart;
     Point arrivee;
 
@@ -25,8 +25,27 @@ public class Segment extends Figure {
         return arrivee;
     }
 
+    public void setDepart(Point depart) {
+        this.depart = depart;
+    }
+
+    public void setArrivee(Point arrivee) {
+        this.arrivee = arrivee;
+    }
+
     @Override
     public void accept(FigureVisitor fv,HashMap<String,String> parameters) {
         fv.visit(this,parameters);
+    }
+
+    @Override
+    public void changeSize(double percentage) {
+        depart.changeSize(percentage);
+        arrivee.changeSize(percentage);
+    }
+
+    @Override
+    public void translate(double abs, double ord) {
+        depart.translate(abs, ord);
     }
 }

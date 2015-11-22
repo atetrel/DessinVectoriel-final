@@ -10,6 +10,8 @@ import java.util.HashMap;
  */
 public abstract class SpecificVisitor {
 
+
+
     public abstract String getLanguage();
     public abstract void specificVisit(Figure f,HashMap<String,String> h);
     public void ecrireDansFichier(String content){
@@ -36,6 +38,7 @@ public abstract class SpecificVisitor {
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
+                System.out.println();
                 e.printStackTrace();
             }
 
@@ -44,5 +47,6 @@ public abstract class SpecificVisitor {
 
         return ret;
     }
+
 
 }

@@ -6,8 +6,8 @@ import visitor.FigureVisitor;
 /**
  * Created by Vic on 21/11/2015.
  */
-public class While implements IOrdre {
-    private IOrdre Ordre;
+public class While extends IOrdreLogique {
+
     private boolean arret;
 
     @Override

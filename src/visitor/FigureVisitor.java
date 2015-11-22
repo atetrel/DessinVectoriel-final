@@ -1,12 +1,8 @@
 package visitor;
 
-import figure.Cercle;
 import figure.Figure;
-import figure.Segment;
-import figure.Point;
 import outils.FileHandler;
 
-import java.awt.*;
 import java.util.HashMap;
 
 /**

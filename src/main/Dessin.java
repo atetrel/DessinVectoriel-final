@@ -2,6 +2,7 @@ package main;
 
 import figure.Figure;
 import figure.IFigure;
+import ordre.dessin.IOrdreDessin;
 import outils.FileHandler;
 import visitor.FigureVisitor;
 import ordre.IOrdre;
@@ -24,6 +25,22 @@ public class Dessin {
         this.ordres = ordres;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public ArrayList<IOrdre> getOrdres() {
+        return ordres;
+    }
+
     public Dessin(String name, int width, int height) {
         this.name = name;
         this.width = width;
@@ -31,7 +48,7 @@ public class Dessin {
         this.ordres = new ArrayList<IOrdre>();
     }
 
-    void add (IOrdre f) {
+    public void add (IOrdre f) {
         ordres.add(f);
     }
 
@@ -44,6 +61,28 @@ public class Dessin {
         }
         fv.finirEcriture();
         fh.close();
+    }
+
+    public  void changeSize(double percentage){
+        double multiplicator = percentage/100;
+        width*=multiplicator;
+        height*=multiplicator;
+        for (IOrdre ordre : ordres){
+
+            if(ordre.getClass().getSuperclass() == IOrdreDessin.class){
+                ((IOrdreDessin)ordre).getFigure().changeSize(percentage);
+            }
+
+        }
+
+    }
+
+    public void translate(double abs,double ord){
+        for (IOrdre ordre : ordres){
+            if(ordre.getClass().getSuperclass() == IOrdreDessin.class){
+                ((IOrdreDessin)ordre).getFigure().translate(abs, ord);
+            }
+        }
     }
 
 }

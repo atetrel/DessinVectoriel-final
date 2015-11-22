@@ -6,8 +6,8 @@ import visitor.FigureVisitor;
 /**
  * Created by Vic on 21/11/2015.
  */
-public class If implements IOrdre {
-    IOrdre ordre;
+public class If extends IOrdreLogique {
+
     boolean condition;
 
     @Override

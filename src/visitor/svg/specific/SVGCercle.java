@@ -1,8 +1,7 @@
 package visitor.svg.specific;
 
-import figure.Cercle;
+import figure.fermee.Cercle;
 import figure.Figure;
-import visitor.SpecificVisitor;
 
 import java.util.HashMap;
 

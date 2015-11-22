@@ -12,59 +12,28 @@ import java.util.Map;
  */
 public abstract class Figure implements IFigure{
     // contient les options pour une figure (remplissage par exemple)
-    private String entete;
-    private String contenu;
-    private String pied;
-    private Crayon defaultCrayon;
-    private Map<String,String> options;
 
+    private Crayon defaultCrayon;
+
+    private HashMap<String,String> parameters;
+
+
+    public HashMap<String, String> getParameters() {
+        return parameters;
+    }
+
+    public void setParameters(HashMap<String, String> parameters) {
+        this.parameters = parameters;
+    }
+
+    public void addParameter(String key, String value){
+        this.parameters.put(key, value);
+    }
 
     public Figure() {
-        this.options = new HashMap<String,String>();
+
         this.defaultCrayon = Crayon.getDefaultCrayon();
+        this.parameters = new HashMap<String, String>();
     }
-
-    public Map<String, String> getOptions() {
-        return options;
-    }
-
-    public void coloriser(Color color) {
-        options.put("couleur","nom couleur");
-    }
-
-    public void modifierTrait(Crayon crayon) {
-        options.put("Crayon","Valeur du crayon");
-    }
-
-    public String getEntete() {
-        return entete;
-    }
-
-    public void setEntete(String entete) {
-        this.entete = entete;
-    }
-
-    public String getContenu() {
-        return contenu;
-    }
-
-    public void setContenu(String contenu) {
-        this.contenu = contenu;
-    }
-
-    public String getPied() {
-        return pied;
-    }
-
-    public void setPied(String pied) {
-        this.pied = pied;
-    }
-
-
-
-    public void ajouterParametre (String key, String value) {
-        getOptions().put(key,value);
-    }
-
 
 }

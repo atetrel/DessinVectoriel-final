@@ -1,9 +1,9 @@
 package visitor.svg;
 
 
-import figure.Cercle;
-import figure.Segment;
-import figure.Point;
+import figure.fermee.Cercle;
+import figure.ouverte.Segment;
+import figure.ouverte.Point;
 import visitor.FigureVisitor;
 
 /**

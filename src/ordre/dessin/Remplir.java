@@ -1,7 +1,9 @@
 package ordre.dessin;
 
 import figure.Figure;
+import figure.fermee.FigureFermee;
 import ordre.IOrdre;
+import ordre.logique.IOrdreLogique;
 import visitor.FigureVisitor;
 
 import java.util.HashMap;
@@ -9,21 +11,19 @@ import java.util.HashMap;
 /**
  * Created by Vic on 21/11/2015.
  */
-public class Remplir implements IOrdre {
-    Figure f;
+public class Remplir extends IOrdreDessin {
+    FigureFermee f;
     String color;
     public static String KEY = Remplir.class.getSimpleName();
 
-    public Remplir(Figure f, String color) {
+    public Remplir(FigureFermee f, String color) {
         this.f = f;
         this.color = color;
     }
 
     @Override
     public void executer(FigureVisitor fv) {
-        HashMap<String,String> h = new HashMap<String, String>();
-        h.put(KEY,color);
-        f.accept(fv,h);
+        f.addParameter(KEY,color);
     }
 
 

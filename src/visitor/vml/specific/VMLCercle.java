@@ -1,9 +1,7 @@
 package visitor.vml.specific;
 
-import figure.Cercle;
+import figure.fermee.Cercle;
 import figure.Figure;
-import visitor.SpecificVisitor;
-import visitor.vml.VML;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,12 +28,12 @@ public class VMLCercle extends VMLSpecifc {
 
         contenu += "<v:arc \n";
 
-        for (Map.Entry<String, String> entry : c.getOptions().entrySet())
-        {
-            if (entry.getKey()!="name") {
-                contenu += entry.getKey() + "=\"" + entry.getValue() + "\" ";
-            }
-        }
+//        for (Map.Entry<String, String> entry : c.getOptions().entrySet())
+//        {
+//            if (entry.getKey()!="name") {
+//                contenu += entry.getKey() + "=\"" + entry.getValue() + "\" ";
+//            }
+//        }
 
         contenu += "\nstartangle=\"0\" endangle=\"360\"";
 

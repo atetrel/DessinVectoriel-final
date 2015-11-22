@@ -1,12 +1,12 @@
 package main;
 
-import figure.Cercle;
-import figure.Point;
-import ordre.dessin.Dessiner;
+import figure.fermee.Cercle;
+import figure.ouverte.Point;
 import ordre.IOrdre;
+import ordre.dessin.Coloriser;
+import ordre.dessin.Dessiner;
 import ordre.dessin.Remplir;
 import visitor.FigureVisitor;
-import visitor.svg.SVG;
 import visitor.vml.VML;
 
 /**
@@ -14,7 +14,7 @@ import visitor.vml.VML;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
 
         Dessin d = new Dessin("test",10,10);
 
@@ -23,9 +23,19 @@ public class Main {
         double rayon = 10;
         Point centre = new Point (x,y);
         Cercle c = new Cercle(centre, rayon);
-        IOrdre dessinerCercle = new Remplir(c,"bleu");
 
-        d.add(dessinerCercle);
+
+        d.add(new Remplir(c,"bleu"));
+        d.add(new Coloriser(c,"rouge"));
+        d.add(new Dessiner(c));
+
+
+
+        //EXEMPLE : comment appeler un certain langage par une string passée au main.
+//        String s = args[0];
+//        String language = "visitor."+s.toLowerCase()+"."+s;
+//        FigureVisitor newType = (FigureVisitor) Class.forName(language).newInstance();
+
 
         FigureVisitor type = new VML();
 

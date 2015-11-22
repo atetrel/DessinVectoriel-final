@@ -6,8 +6,8 @@ import visitor.FigureVisitor;
 /**
  * Created by Vic on 21/11/2015.
  */
-public class For implements IOrdre {
-    private IOrdre ordre;
+public class For extends IOrdreLogique {
+
     private int interateur;
     private boolean conditionDArret;
 
