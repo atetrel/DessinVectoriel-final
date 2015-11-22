@@ -13,7 +13,6 @@ import java.util.Map;
 public abstract class Figure implements IFigure{
     // contient les options pour une figure (remplissage par exemple)
 
-    private Crayon defaultCrayon;
 
     private HashMap<String,String> parameters;
 
@@ -31,8 +30,6 @@ public abstract class Figure implements IFigure{
     }
 
     public Figure() {
-
-        this.defaultCrayon = Crayon.getDefaultCrayon();
         this.parameters = new HashMap<String, String>();
     }
 

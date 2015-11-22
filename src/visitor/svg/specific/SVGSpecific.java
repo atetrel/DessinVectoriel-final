@@ -1,5 +1,6 @@
 package visitor.svg.specific;
 
+import outils.Crayon;
 import visitor.SpecificVisitor;
 import visitor.svg.SVG;
 
@@ -27,8 +28,12 @@ public abstract class SVGSpecific  extends SpecificVisitor {
         return" />";
     }
 
+    public String handleCrayon(){
+        return "stroke=\""+ Crayon.getDefaultCrayon().getCouleur()+"\" stroke-width=\""+Crayon.getDefaultCrayon().getLargeur()+"\" ";
+    }
+
     public String SVGStringAutomation(String type,String specific){
-        return SVGPattern(type)+specific+SVGQuickClose()+System.lineSeparator();
+        return SVGPattern(type)+specific+handleCrayon()+SVGQuickClose()+System.lineSeparator();
     }
 
 }

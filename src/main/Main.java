@@ -28,8 +28,9 @@ public class Main {
 
 
         d.add(new Remplir(c,"bleu"));
-        d.add(new Coloriser(c,"rouge"));
+        d.add(new ChangerCouleur("rouge"));
         d.add(new Dessiner(c));
+        d.add(new ChangerCouleur("noir"));
 
 
 
