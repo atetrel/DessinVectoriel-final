@@ -12,7 +12,6 @@ import java.util.HashMap;
  * Created by Vic on 21/11/2015.
  */
 public class Remplir extends IOrdreDessin {
-    FigureFermee f;
     String color;
     public static String KEY = Remplir.class.getSimpleName();
 

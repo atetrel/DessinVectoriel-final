@@ -16,7 +16,9 @@ public class Point extends FigureOuverte {
         super();
         this.abscisse = abscisse;
         this.ordonnee = ordonnee;
+
     }
+
 
     public double getAbscisse() {
         return abscisse;
@@ -25,6 +27,9 @@ public class Point extends FigureOuverte {
     public double getOrdonnee() {
         return ordonnee;
     }
+
+    @Override
+    public Point getPointDetiquetage(){return this; }
 
     public void setAbscisse(double abscisse) {
         this.abscisse = abscisse;

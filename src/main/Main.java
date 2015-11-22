@@ -31,6 +31,7 @@ public class Main {
         d.add(new ChangerCouleur("rouge"));
         d.add(new Dessiner(c));
         d.add(new ChangerCouleur("noir"));
+        d.add(new Etiqueter("Cercle",5,c));
 
 
 
@@ -42,10 +43,10 @@ public class Main {
 
         FigureVisitor type = new SVG();
 
-        FigureVisitor type2 = new VML();
+//        FigureVisitor type2 = new VML();
 
         d.draw(type);
-        d.draw(type2);
+//        d.draw(type2);
 
 
 

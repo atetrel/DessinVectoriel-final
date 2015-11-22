@@ -15,6 +15,7 @@ public class Segment extends FigureOuverte {
         super();
         this.depart = depart;
         this.arrivee = arrivee;
+        this.pointDetiquetage = depart;
     }
 
     public Point getDepart() {

@@ -10,7 +10,7 @@ import java.util.HashMap;
  * Created by Vic on 21/11/2015.
  */
 public class Dessiner extends IOrdreDessin {
-    private Figure f;
+
     public Dessiner(Figure f){
         this.f = f;
     }

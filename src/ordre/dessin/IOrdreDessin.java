@@ -12,5 +12,6 @@ public abstract class IOrdreDessin implements IOrdre {
 
     public Figure getFigure(){
         return f;
+
     }
 }

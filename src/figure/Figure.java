@@ -1,9 +1,10 @@
 package figure;
 
 
+import figure.ouverte.Point;
 import outils.Crayon;
 
-import java.awt.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,9 +14,11 @@ import java.util.Map;
 public abstract class Figure implements IFigure{
     // contient les options pour une figure (remplissage par exemple)
 
+    protected Point pointDetiquetage;
 
-    private HashMap<String,String> parameters;
+    protected HashMap<String,String> parameters;
 
+    public Point getPointDetiquetage(){return pointDetiquetage; }
 
     public HashMap<String, String> getParameters() {
         return parameters;
@@ -28,6 +31,7 @@ public abstract class Figure implements IFigure{
     public void addParameter(String key, String value){
         this.parameters.put(key, value);
     }
+
 
     public Figure() {
         this.parameters = new HashMap<String, String>();

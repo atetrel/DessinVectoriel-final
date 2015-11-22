@@ -20,7 +20,7 @@ public abstract class SVGSpecific  extends SpecificVisitor {
         return key+"="+ SVG.GUILL +value+ SVG.GUILL +" ";
     }
 
-    public String SVGPattern(String type){
+    public String SVGQuickOpen(String type){
         return "<"+type+" ";
     }
 
@@ -33,7 +33,7 @@ public abstract class SVGSpecific  extends SpecificVisitor {
     }
 
     public String SVGStringAutomation(String type,String specific){
-        return SVGPattern(type)+specific+handleCrayon()+SVGQuickClose()+System.lineSeparator();
+        return SVGQuickOpen(type)+specific+handleCrayon()+SVGQuickClose()+System.lineSeparator();
     }
 
 }
