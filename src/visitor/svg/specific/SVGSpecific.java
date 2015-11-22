@@ -29,7 +29,11 @@ public abstract class SVGSpecific  extends SpecificVisitor {
     }
 
     public String handleCrayon(){
-        return "stroke=\""+ Crayon.getDefaultCrayon().getCouleur()+"\" stroke-width=\""+Crayon.getDefaultCrayon().getLargeur()+"\" ";
+        return this.handleCrayonColor()+" stroke-width=\""+Crayon.getDefaultCrayon().getLargeur()+"\" ";
+    }
+
+    public String handleCrayonColor(){
+        return "stroke=\""+ Crayon.getDefaultCrayon().getCouleur()+"\"";
     }
 
     public String SVGStringAutomation(String type,String specific){
