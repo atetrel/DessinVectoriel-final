@@ -26,21 +26,12 @@ public class VMLCercle extends VMLSpecifc {
 
         String contenu = "";
 
-        contenu += "<v:arc \n";
-
-//        for (Map.Entry<String, String> entry : c.getOptions().entrySet())
-//        {
-//            if (entry.getKey()!="name") {
-//                contenu += entry.getKey() + "=\"" + entry.getValue() + "\" ";
-//            }
-//        }
-
-        contenu += "\nstartangle=\"0\" endangle=\"360\"";
+        contenu += this.VMLQuickOpen("arc");
+        contenu += "startangle=\"0\" endangle=\"360\" ";
 
         contenu+= this.addParameters(c.getParameters());
 
-
-        contenu += ">\n</v:arc>\n";
+        contenu += this.VMLQuickClose("arc");
 
         return contenu;
     }

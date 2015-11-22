@@ -19,15 +19,15 @@ public abstract class VMLSpecifc extends SpecificVisitor {
     }
 
     public String addVMLParameter(String key, String value){
-        return key+"="+ "\""+value+ "\"";
+        return key+"="+ "\""+value+ "\" ";
     }
 
-    public String SVGQuickOpen(String type){
-        return "<"+type+" ";
+    public String VMLQuickOpen(String type){
+        return "<v:"+type+">\n";
     }
 
-    public String SVGQuickClose(){
-        return" />";
+    public String VMLQuickClose(String type){
+        return"\n</v:"+type+">";
     }
 
     public String handleCrayon(){
@@ -35,11 +35,7 @@ public abstract class VMLSpecifc extends SpecificVisitor {
     }
 
     public String handleCrayonColor(){
-        return "stroke=\""+ Crayon.getDefaultCrayon().getCouleur()+"\"";
-    }
-
-    public String SVGStringAutomation(String type,String specific){
-        return SVGQuickOpen(type)+specific+handleCrayon()+SVGQuickClose()+System.lineSeparator();
+        return "strokecolor=\""+ Crayon.getDefaultCrayon().getCouleur()+"\"";
     }
 
 

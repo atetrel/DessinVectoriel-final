@@ -8,6 +8,6 @@ import visitor.SpecificOrder;
 public class VMLRemplir extends VMLOrder {
     @Override
     public String execute(String param) {
-        return "<v:fill type=gradient color=\""+param+"\"/>";
+        return "fillcolor=\""+ param +"\" ";
     }
 }

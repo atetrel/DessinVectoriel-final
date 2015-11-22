@@ -43,10 +43,10 @@ public class Main {
 
         FigureVisitor type = new SVG();
 
-//        FigureVisitor type2 = new VML();
+        FigureVisitor type2 = new VML();
 
         d.draw(type);
-//        d.draw(type2);
+        d.draw(type2);
 
 
 

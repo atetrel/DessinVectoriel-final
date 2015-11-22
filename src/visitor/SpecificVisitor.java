@@ -32,8 +32,11 @@ public abstract class SpecificVisitor {
             System.out.println(specificOrder);
             Object myInstance = null;
             try {
+
                 myInstance = (Class.forName(specificOrder).newInstance());
-                ret+=   ((SpecificOrder)(myInstance)).execute(h.get(key));
+                ret+=  ((SpecificOrder)(myInstance)).execute(h.get(key));
+
+
             } catch (InstantiationException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
