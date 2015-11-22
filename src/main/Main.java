@@ -8,6 +8,7 @@ import ordre.dessin.*;
 import ordre.logique.*;
 import visitor.*;
 import visitor.svg.SVG;
+import visitor.vml.VML;
 
 
 /**
@@ -40,7 +41,10 @@ public class Main {
 
         FigureVisitor type = new SVG();
 
+        FigureVisitor type2 = new VML();
+
         d.draw(type);
+        d.draw(type2);
 
 
 
