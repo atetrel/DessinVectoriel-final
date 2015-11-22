@@ -5,10 +5,9 @@ import visitor.SpecificOrder;
 /**
  * Created by Vic on 21/11/2015.
  */
-public class VMLRemplir extends SpecificOrder {
+public class VMLRemplir extends VMLOrder {
     @Override
     public String execute(String param) {
-
-        return "Je remplis en "+param;
+        return "<v:fill type=gradient color=\""+param+"\"/>";
     }
 }

@@ -8,6 +8,8 @@ import visitor.FigureVisitor;
  * Created by tetrel on 17/11/15.
  */
 public class VML extends FigureVisitor {
+
+
     private String entete;
     private String contenu;
     private String pied;
