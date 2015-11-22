@@ -13,7 +13,7 @@ public abstract class SpecificVisitor {
 
 
     public abstract String getLanguage();
-    public abstract void specificVisit(Figure f,HashMap<String,String> h);
+    public abstract void specificVisit(Figure f);
     public void ecrireDansFichier(String content){
         FileHandler.STATIC_ACCESS.ecrireDansFichier(content);
     }
@@ -29,6 +29,7 @@ public abstract class SpecificVisitor {
         String languageName = getLanguage();
         for(String key : h.keySet()) {
             String specificOrder = "visitor." + languageName.toLowerCase() + ".orders." + languageName + key;
+            System.out.println(specificOrder);
             Object myInstance = null;
             try {
                 myInstance = (Class.forName(specificOrder).newInstance());

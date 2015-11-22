@@ -12,9 +12,9 @@ import java.util.Map;
 public class VMLCercle extends VMLSpecifc {
 
     @Override
-    public void specificVisit(Figure f, HashMap<String,String> h) {
+    public void specificVisit(Figure f) {
         Cercle c = (Cercle) f;
-        String s = this.visit(c,h);
+        String s = this.visit(c);
         this.ecrireDansFichier(s);
 
 
@@ -22,7 +22,7 @@ public class VMLCercle extends VMLSpecifc {
 
 
 
-    public String visit(Cercle c,HashMap<String,String> h) {
+    public String visit(Cercle c) {
 
         String contenu = "";
 
@@ -37,7 +37,7 @@ public class VMLCercle extends VMLSpecifc {
 
         contenu += "\nstartangle=\"0\" endangle=\"360\"";
 
-        contenu+= this.addParameters(h);
+        contenu+= this.addParameters(c.getParameters());
 
 
         contenu += ">\n</v:arc>\n";

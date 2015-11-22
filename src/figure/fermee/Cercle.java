@@ -35,8 +35,8 @@ public class Cercle extends FigureFermee {
     }
 
     @Override
-    public void accept(FigureVisitor fv,HashMap<String,String> parameters) {
-        fv.visit(this,parameters);
+    public void accept(FigureVisitor fv) {
+        fv.visit(this);
     }
 
     @Override

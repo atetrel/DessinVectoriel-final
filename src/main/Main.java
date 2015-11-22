@@ -2,12 +2,13 @@ package main;
 
 import figure.fermee.Cercle;
 import figure.ouverte.Point;
-import ordre.IOrdre;
-import ordre.dessin.Coloriser;
-import ordre.dessin.Dessiner;
-import ordre.dessin.Remplir;
-import visitor.FigureVisitor;
-import visitor.vml.VML;
+
+import ordre.*;
+import ordre.dessin.*;
+import ordre.logique.*;
+import visitor.*;
+import visitor.svg.SVG;
+
 
 /**
  * Created by tetrel on 17/11/15.
@@ -37,7 +38,7 @@ public class Main {
 //        FigureVisitor newType = (FigureVisitor) Class.forName(language).newInstance();
 
 
-        FigureVisitor type = new VML();
+        FigureVisitor type = new SVG();
 
         d.draw(type);
 

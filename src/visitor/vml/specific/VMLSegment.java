@@ -14,14 +14,14 @@ public class VMLSegment extends VMLSpecifc {
 
 
     @Override
-    public void specificVisit(Figure f, HashMap<String,String> h) {
+    public void specificVisit(Figure f) {
         Segment segment  = (Segment) f;
-        String s = this.visit(segment,h);
+        String s = this.visit(segment);
         this.ecrireDansFichier(s);
     }
 
 
-    public String visit (Segment s, HashMap<String,String> h) {
+    public String visit (Segment s) {
 
         String contenu = "";
 
@@ -35,7 +35,7 @@ public class VMLSegment extends VMLSpecifc {
 
         contenu += "from=\""+p1.getAbscisse()+","+p1.getOrdonnee()+"\n to=\""+p2.getAbscisse()+","+p2.getOrdonnee()+"\">\n";
 
-        contenu+= this.addParameters(h);
+        contenu+= this.addParameters(s.getParameters());
 
         return contenu += "</v:line>\n";
 

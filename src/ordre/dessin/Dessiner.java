@@ -19,7 +19,7 @@ public class Dessiner extends IOrdreDessin {
 
     @Override
     public void executer(FigureVisitor visitor) {
-        f.accept(visitor,f.getParameters());
+        f.accept(visitor);
     }
 
 

@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public interface IFigure {
 
-    void accept(FigureVisitor fv, HashMap<String,String> parameters);
+    void accept(FigureVisitor fv);
 
     void changeSize(double percentage);
 

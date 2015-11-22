@@ -4,6 +4,7 @@ package visitor.svg;
 import figure.fermee.Cercle;
 import figure.ouverte.Segment;
 import figure.ouverte.Point;
+import main.Dessin;
 import visitor.FigureVisitor;
 
 /**
@@ -14,10 +15,26 @@ public class SVG extends FigureVisitor {
     private String pied;
     private String contenu;
 
+
+    public static final String GUILL = "\"";
+
     public SVG() {
-        this.entete = "";
+        this(100,100);
+    }
+
+    public SVG(Dessin d) {
+        this(d.getHeight(),d.getWidth());
+    }
+
+    public SVG(int height,int width) {
+        this.entete = "<svg" +
+                " height="
+                +GUILL+height+GUILL+
+                " width="+
+                GUILL+width+GUILL+
+                ">"+System.lineSeparator();
         this.contenu = "";
-        this.pied = "";
+        this.pied = System.lineSeparator()+"</svg>";
     }
 
 
@@ -35,12 +52,12 @@ public class SVG extends FigureVisitor {
 
     @Override
     public void initierEcriture() {
-
+        this.ecrireDansFichier(getEntete());
     }
 
     @Override
     public void finirEcriture() {
-
+        this.ecrireDansFichier(getPied());
     }
 
     public void setPied(String pied) {

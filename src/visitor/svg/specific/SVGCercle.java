@@ -13,13 +13,18 @@ public class SVGCercle extends SVGSpecific {
 
 
     @Override
-    public void specificVisit(Figure f, HashMap<String,String> h) {
+    public void specificVisit(Figure f) {
         Cercle c = (Cercle) f;
-        this.visit(c);
+        this.ecrireDansFichier(this.visit(c));
     }
 
-    public void visit(Cercle c){
-        System.out.println("Je trace un cercle en SVG");
-        this.ecrireDansFichier("Je trace un cercle en SVG");
+    public String visit(Cercle c){
+        String s=this.addSVGParameter("cx",""+c.getCentre().getAbscisse());
+        s+=this.addSVGParameter("cy",""+c.getCentre().getOrdonnee());
+        s+=this.addSVGParameter("r",""+c.getRayon());
+        s+=this.addParameters(c.getParameters());
+        return this.SVGStringAutomation("circle",s);
     }
+
+
 }

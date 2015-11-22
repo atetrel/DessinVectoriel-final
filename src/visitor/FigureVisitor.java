@@ -16,7 +16,7 @@ public abstract class FigureVisitor {
 
     public abstract String getPied();
 
-    public void visit(Figure f, HashMap<String,String> h){
+    public void visit(Figure f){
         String languageName = this.getClass().getSimpleName();
         String figureName = f.getClass().getSimpleName();
         String specificVisitor = "visitor."+languageName.toLowerCase()+".specific."+languageName+figureName;
@@ -24,7 +24,7 @@ public abstract class FigureVisitor {
         Object myInstance = null;
         try {
             myInstance = (Class.forName(specificVisitor).newInstance());
-            ((SpecificVisitor)(myInstance)).specificVisit(f,h);
+            ((SpecificVisitor)(myInstance)).specificVisit(f);
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
