@@ -23,6 +23,7 @@ public class Remplir extends IOrdreDessin {
     @Override
     public void executer(FigureVisitor fv) {
         f.addParameter(KEY,color);
+        System.out.println(color);
     }
 
 

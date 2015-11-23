@@ -10,6 +10,8 @@ import visitor.*;
 import visitor.svg.SVG;
 import visitor.vml.VML;
 
+import java.util.ArrayList;
+
 
 /**
  * Created by tetrel on 17/11/15.
@@ -26,8 +28,8 @@ public class Main {
         Point centre = new Point (x,y);
         Cercle c = new Cercle(centre, rayon);
 
+        int i = 0;
 
-        d.add(new Remplir(c,"bleu"));
         d.add(new ChangerCouleur("rouge"));
         d.add(new Dessiner(c));
         d.add(new ChangerCouleur("noir"));
@@ -42,11 +44,22 @@ public class Main {
 
 
         FigureVisitor type = new SVG();
+      //  ArrayList<Integer> liste = new ArrayList<Integer>();
+        //liste.add(1);
+        //liste.add(2);
+        //liste.add(3);
 
-        FigureVisitor type2 = new VML();
+        While whilee = new While(new Remplir(c,"bleu"),p -> p<5,0);
+        whilee.executer(type);
+
+        //If iff = new If(new Remplir(c,"rouge"),new Remplir(c,"bleu"),false);
+        //iff.executer(type);
+//        For forr = new For(new Remplir(c,"bleu"),i,p -> p<5);
+        //forr.executer(type);
+//        FigureVisitor type2 = new VML();
 
         d.draw(type);
-        d.draw(type2);
+//        d.draw(type2);
 
 
 
