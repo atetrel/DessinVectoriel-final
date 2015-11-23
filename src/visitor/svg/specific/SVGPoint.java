@@ -17,7 +17,7 @@ public class SVGPoint extends SVGSpecific {
 
     private String visit(Point p) {
         Cercle c = new Cercle(p,2);
-        c.addParameter("fill","#000000");
+        c.addParameter("Remplir","#000000");
     return new SVGCercle().visit(c);
     }
 }
