@@ -7,7 +7,6 @@ import ordre.IOrdre;
  */
 public abstract class IOrdreLogique implements IOrdre {
 
-   protected IOrdre ordre;
 
 
 

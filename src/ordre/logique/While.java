@@ -3,6 +3,7 @@ package ordre.logique;
 import ordre.IOrdre;
 import visitor.FigureVisitor;
 
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
@@ -10,19 +11,20 @@ import java.util.function.Predicate;
  */
 public class While extends IOrdreLogique {
 
+    private Function<Integer,IOrdre> ordre;
     private Predicate<Integer> condition;
     private Integer parametre;
 
-    public While(IOrdre ordree,Predicate<Integer> condition, Integer parametre) {
+    public While(Function<Integer, IOrdre> ordre, Predicate<Integer> condition, Integer parametre) {
+        this.ordre = ordre;
         this.condition = condition;
         this.parametre = parametre;
-        this.ordre = ordree;
     }
 
     @Override
     public void executer(FigureVisitor fv) {
         while (condition.test(parametre)){
-            ordre.executer(fv);
+            ordre.apply(parametre).executer(fv);
             parametre++;
         }
     }

@@ -10,6 +10,7 @@ import java.util.function.Predicate;
  */
 public class If extends IOrdreLogique {
 
+    private IOrdre ordre;
     private boolean condition;
     private IOrdre ordreElse;
 
