@@ -29,8 +29,8 @@ public class SVG extends FigureVisitor {
                 " width="+
                 GUILL+width+GUILL+
                 " xmlns="+GUILL+"http://www.w3.org/2000/svg"+GUILL+
-                " viewBox="+GUILL+"0 0 "+height+
-                " "+width+GUILL+
+                " viewBox="+GUILL+"0 0 "+width+
+                " "+height+GUILL+
                 " > "+System.lineSeparator();
         this.contenu = "";
         this.pied = System.lineSeparator()+"</svg>";
