@@ -26,6 +26,11 @@ public interface IFigure {
      */
     void changeSize(double percentage);
 
+    /**
+     * Translate la figure selon les paramètres
+     * @param abs
+     * @param ord
+     */
     void translate(double abs,double ord);
 
 
