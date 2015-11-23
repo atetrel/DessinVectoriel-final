@@ -22,10 +22,6 @@ public class SVG extends FigureVisitor {
         this(100,100);
     }
 
-    public SVG(Dessin d) {
-        this(d.getHeight(),d.getWidth());
-    }
-
     public SVG(int height,int width) {
         this.entete = "<svg" +
                 " height="
@@ -33,15 +29,20 @@ public class SVG extends FigureVisitor {
                 " width="+
                 GUILL+width+GUILL+
                 " xmlns="+GUILL+"http://www.w3.org/2000/svg"+GUILL+
-                " viewBox="+GUILL+"0 0 "+height+
-                " "+width+GUILL+
+                " viewBox="+GUILL+"0 0 "+width+
+                " "+height+GUILL+
                 " > "+System.lineSeparator();
         this.contenu = "";
         this.pied = System.lineSeparator()+"</svg>";
     }
 
-
+    @Override
     public String getEntete() {
+        return entete;
+    }
+
+    public String getUpdatedEntete(int h,int w) {
+        entete = new SVG(h,w).entete;
         return entete;
     }
 
@@ -54,18 +55,20 @@ public class SVG extends FigureVisitor {
     }
 
     @Override
-    public void initierEcriture() {
-        this.ecrireDansFichier(getEntete());
+    public void initierEcriture(Dessin d) {
+        this.ecrireDansFichier(getUpdatedEntete(d.getHeight(),d.getWidth()));
     }
 
     @Override
-    public void finirEcriture() {
+    public void finirEcriture(Dessin d) {
         this.ecrireDansFichier(getPied());
     }
 
     public void setPied(String pied) {
         this.pied = pied;
     }
+
+
 
     public String getContenu() {
         return contenu;

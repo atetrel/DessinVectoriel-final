@@ -1,7 +1,7 @@
 package main;
 
 import figure.fermee.Cercle;
-import figure.fermee.FigureFermee;
+import figure.ouverte.Etiquette;
 import figure.ouverte.Point;
 
 import ordre.*;
@@ -19,51 +19,53 @@ import java.util.ArrayList;
  */
 public class Main {
 
-    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+    private static FigureVisitor createVisitor(String s){
+        String language = "visitor."+s.toLowerCase()+"."+s;
+        try {
+            return (FigureVisitor) Class.forName(language).newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            System.out.println("This language is not implemented.");
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-        Dessin d = new Dessin("test",10,10);
+    private static void output(Dessin d,String s){
+        FigureVisitor fv = createVisitor(s);
+        d.draw(fv);
+    }
 
-        int x = 0;
-        int y = 0;
-        double rayon = 10;
-        Point centre = new Point (x,y);
-        Cercle c = new Cercle(centre, rayon);
+    private static void testAngelin(){
+        Dessin d = new Dessin("test",300,200);
 
-        int i = 0;
+        int x = 100;
+        int y = 100;
+        double rayon = 20;
+        Cercle c = new Cercle(new Point (x,y), rayon);
 
-        d.add(new ChangerCouleur("rouge"));
+
+        d.add(new Remplir(c,"#0000ff"));
+        d.add(new ChangerCouleur("#cc0000"));
         d.add(new Dessiner(c));
-        d.add(new ChangerCouleur("noir"));
+        d.add(new ChangerCouleur("#000000"));
+
         d.add(new Etiqueter("Cercle",5,c));
 
 
-
-        //EXEMPLE : comment appeler un certain langage par une string passée au main.
-//        String s = args[0];
-//        String language = "visitor."+s.toLowerCase()+"."+s;
-//        FigureVisitor newType = (FigureVisitor) Class.forName(language).newInstance();
+        output(d,"SVG");
 
 
-        FigureVisitor type = new SVG();
-      //  ArrayList<Integer> liste = new ArrayList<Integer>();
-        //liste.add(1);
-        //liste.add(2);
-        //liste.add(3);
-
-//        While whilee = new While(p->new Remplir(),p -> p<5,0);
-//        whilee.executer(type);
-
-        //If iff = new If(new Remplir(c,"rouge"),new Remplir(c,"bleu"),false);
-        //iff.executer(type);
-        For forr = new For(p->new Cercle(new Point(32,60),20*p), p->new Remplir((FigureFermee) p,"rouge"),i,p -> p<5);
-        forr.executer(type);
-//        FigureVisitor type2 = new VML();
-
-        d.draw(type);
-//        d.draw(type2);
+    }
 
 
 
+    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+
+        testAngelin();
 
 
     }
