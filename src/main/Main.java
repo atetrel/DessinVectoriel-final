@@ -28,9 +28,16 @@ public class Main {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            System.out.println("This language is not implemented.");
             e.printStackTrace();
         }
         return null;
+    }
+
+    private static void output(Dessin d,String s){
+        FigureVisitor fv = createVisitor(s);
+
+
     }
 
     private static void testAngelin(){
@@ -50,9 +57,7 @@ public class Main {
         d.add(new Etiqueter("Cercle",5,c));
 
 
-        //EXEMPLE : comment appeler un certain langage par une string passée au main.
-        FigureVisitor fv = createVisitor("SVG");
-        d.draw(fv);
+        output(d,"SVG");
 
     }
 
