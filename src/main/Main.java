@@ -60,9 +60,8 @@ public class Main {
         Point p = new Point(100,50);
         d.add(new Dessiner(p));
 
-
         output(d,"SVG");
-
+        output(d,"VML");
 
     }
 
