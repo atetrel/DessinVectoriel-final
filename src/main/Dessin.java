@@ -10,6 +10,8 @@ import ordre.IOrdre;
 import java.util.ArrayList;
 
 /**
+ * Objet qui fera l'objet d'une onterpretation. Il contient une séquence d'ordres.
+ * Interpreter un dessin renvoie un et un seul fichier qui contient de résultat de l'exécution séquentielle de tous ses ordres.
  * Created by tetrel on 17/11/15.
  */
 public class Dessin {
@@ -55,7 +57,7 @@ public class Dessin {
 
     void draw (FigureVisitor fv) {
 
-        FileHandler fh = new FileHandler(fv.getClass().getSimpleName().toLowerCase());
+        FileHandler fh = new FileHandler(name+"."+fv.getClass().getSimpleName().toLowerCase());
         fv.initierEcriture(this);
         for (IOrdre o : ordres) {
             o.executer(fv); // Ceci écrit déjà dans le fichier le contenu

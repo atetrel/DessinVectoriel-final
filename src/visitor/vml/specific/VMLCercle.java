@@ -25,15 +25,11 @@ public class VMLCercle extends VMLSpecifc {
     public String visit(Cercle c) {
 
         String contenu = "";
-
-        contenu += this.VMLQuickOpen("arc");
         contenu += "startangle=\"0\" endangle=\"360\" ";
 
         contenu+= this.addParameters(c.getParameters());
 
-        contenu += this.VMLQuickClose("arc");
-
-        return contenu;
+        return this.VMLStringAutomation("arc",contenu);
     }
 
 

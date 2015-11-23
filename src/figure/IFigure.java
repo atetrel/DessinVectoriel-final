@@ -14,10 +14,23 @@ import java.util.Map;
  */
 public interface IFigure {
 
+    /**
+     * Methode accept pour le patron visiteur
+     * @param fv le visiteur
+     */
     void accept(FigureVisitor fv);
 
+    /**
+     * Modifie la taille de la figure selon le pourcentage en parametre.
+     * @param percentage
+     */
     void changeSize(double percentage);
 
+    /**
+     * Translate la figure selon les paramètres
+     * @param abs
+     * @param ord
+     */
     void translate(double abs,double ord);
 
 

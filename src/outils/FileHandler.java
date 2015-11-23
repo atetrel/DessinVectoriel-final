@@ -16,7 +16,7 @@ public class FileHandler {
 
     public  FileHandler(String type)  {
         try {
-            this.printWriter = new PrintWriter(DEFAULT_FILE_NAME+"."+type,"UTF-8");
+            this.printWriter = new PrintWriter(type,"UTF-8");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {

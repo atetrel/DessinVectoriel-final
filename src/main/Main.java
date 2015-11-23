@@ -43,7 +43,7 @@ public class Main {
     private static void testAngelin(){
         Dessin d = new Dessin("test",300,200);
 
-        int x = 100;
+        int x = 99;
         int y = 100;
         double rayon = 20;
         Cercle c = new Cercle(new Point (x,y), rayon);
@@ -60,9 +60,8 @@ public class Main {
         Point p = new Point(100,50);
         d.add(new Dessiner(p));
 
-
         output(d,"SVG");
-
+        output(d,"VML");
 
     }
 
@@ -89,6 +88,7 @@ public class Main {
         d.add(new Dessiner(ddroit));
         d.add(new Dessiner(ggauche));
         output(d,"SVG");
+        output(d,"VML");
 
     }
 
@@ -97,7 +97,6 @@ public class Main {
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
 
         logo();
-
 
     }
 
