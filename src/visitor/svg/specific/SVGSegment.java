@@ -15,8 +15,8 @@ public class SVGSegment extends SVGSpecific {
 
     private String visit(Segment s) {
         String string = this.addSVGParameter("x1",""+s.getDepart().getAbscisse());
-        string += this.addSVGParameter("x2",""+s.getDepart().getOrdonnee());
-        string += this.addSVGParameter("y1",""+s.getArrivee().getAbscisse());
+        string += this.addSVGParameter("y1",""+s.getDepart().getOrdonnee());
+        string += this.addSVGParameter("x2",""+s.getArrivee().getAbscisse());
         string += this.addSVGParameter("y2",""+s.getArrivee().getOrdonnee());
         string += this.addParameters(s.getParameters());
         return this.SVGStringAutomation("line",string);
