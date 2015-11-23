@@ -8,6 +8,7 @@ import visitor.FigureVisitor;
 import ordre.IOrdre;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Objet qui fera l'objet d'une onterpretation. Il contient une séquence d'ordres.
@@ -27,6 +28,11 @@ public class Dessin {
         this.ordres = ordres;
     }
 
+    public Dessin(String name, int height, int width) {
+        this(name,width,height,new ArrayList<IOrdre>());
+
+    }
+
     public String getName() {
         return name;
     }
@@ -43,33 +49,39 @@ public class Dessin {
         return ordres;
     }
 
-    public Dessin(String name, int height, int width) {
-        this.name = name;
-        this.width = width;
-        this.height = height;
-        this.ordres = new ArrayList<IOrdre>();
-
-    }
 
     public void add (IOrdre f) {
         ordres.add(f);
     }
 
+    /**
+     * Execute sequentiellement les ordres et renvoie un fichier nomme name.language
+     * @param fv
+     */
     void draw (FigureVisitor fv) {
 
         FileHandler fh = new FileHandler(name+"."+fv.getClass().getSimpleName().toLowerCase());
         fv.initierEcriture(this);
+
+
         for (IOrdre o : ordres) {
-            o.executer(fv); // Ceci écrit déjà dans le fichier le contenu
+            o.executer(fv);
         }
+
+
         fv.finirEcriture(this);
         fh.close();
     }
 
+    /**
+     * Mise a l'echelle de tout le dessin
+     * @param percentage
+     */
     public  void changeSize(double percentage){
         double multiplicator = percentage/100;
-        width*=multiplicator;
-        height*=multiplicator;
+        width=(int)(width*multiplicator);
+        height=(int)(height*multiplicator);
+
         for (IOrdre ordre : ordres){
 
             if(ordre.getClass().getSuperclass() == IOrdreDessin.class){
@@ -80,6 +92,12 @@ public class Dessin {
 
     }
 
+
+    /**
+     * Translation de tout le dessin
+     * @param abs
+     * @param ord
+     */
     public void translate(double abs,double ord){
         for (IOrdre ordre : ordres){
             if(ordre.getClass().getSuperclass() == IOrdreDessin.class){

@@ -10,6 +10,7 @@ import java.util.HashMap;
 
 /**
  * Created by Vic on 21/11/2015.
+ * Remplit la figure cible si elle est fermee
  */
 public class Remplir extends IOrdreDessin {
     String color;

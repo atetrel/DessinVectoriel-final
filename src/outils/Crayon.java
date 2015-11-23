@@ -6,8 +6,9 @@ import java.awt.*;
 
 /**
  * Created by tetrel on 17/11/15.
+ * Singleton contenant les paramètres de dessin.
  */
-public class Crayon implements IOutils {
+public class Crayon {
     private String couleur;
     private int largeur;
     public static final String DEFAULT_COULEUR = "000000";

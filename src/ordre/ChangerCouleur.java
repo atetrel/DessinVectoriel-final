@@ -5,6 +5,7 @@ import visitor.FigureVisitor;
 
 /**
  * Created by Vic on 22/11/2015.
+ * Change la couleur du crayon.
  */
 public class ChangerCouleur implements IOrdre {
 

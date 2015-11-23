@@ -5,6 +5,7 @@ import visitor.FigureVisitor;
 
 /**
  * Created by Vic on 22/11/2015.
+ * Change l'epaisseur dy crayon.
  */
 public class ChangerEpaisseur implements IOrdre {
 

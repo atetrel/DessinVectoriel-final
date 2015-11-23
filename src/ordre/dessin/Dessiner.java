@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 /**
  * Created by Vic on 21/11/2015.
+ * Dessine la figure cible.
  */
 public class Dessiner extends IOrdreDessin {
 

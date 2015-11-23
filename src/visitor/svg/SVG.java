@@ -15,7 +15,10 @@ public class SVG extends FigureVisitor {
     private String pied;
     private String contenu;
 
-
+    /**
+     * Est utile pour la creation de svg.
+     * La structure permet a chaque langage d'avoir sa propre logique de generation.
+     */
     public static final String GUILL = "\"";
 
     public SVG() {

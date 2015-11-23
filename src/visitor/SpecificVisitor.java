@@ -7,6 +7,8 @@ import java.util.HashMap;
 
 /**
  * Created by Vic on 21/11/2015.
+ *Correspond a un langage et une figure seulement.
+ * Doit respecter les conventions de noms specifies dans le readme.
  */
 public abstract class SpecificVisitor {
 
@@ -24,6 +26,11 @@ public abstract class SpecificVisitor {
         return contenu;
     }
 
+    /**
+     * Appelle les visiteurs d'ordres specifiques aux ordres a traiter
+     * @param h
+     * @return
+     */
     public String visitParameters(HashMap<String,String> h){
         String ret = "";
         String languageName = getLanguage();

@@ -18,9 +18,15 @@ import java.util.ArrayList;
 
 /**
  * Created by tetrel on 17/11/15.
+ *
  */
 public class Main {
 
+    /**
+     * Facilite la création d'un visiteur.
+     * @param s le nom du langage de sortie
+     * @return
+     */
     private static FigureVisitor createVisitor(String s){
         String language = "visitor."+s.toLowerCase()+"."+s;
         try {
@@ -36,36 +42,19 @@ public class Main {
         return null;
     }
 
+    /**
+     * Facilite le traitement d'un dessin
+     * @param d le dessin a traiter
+     * @param s le langage de sortie
+     */
     private static void output(Dessin d,String s){
         FigureVisitor fv = createVisitor(s);
         d.draw(fv);
     }
 
-    private static void testAngelin(){
-        Dessin d = new Dessin("test",300,200);
-
-        int x = 99;
-        int y = 100;
-        double rayon = 20;
-        Cercle c = new Cercle(new Point (x,y), rayon);
-        d.add(new Remplir(c,"#0000ff"));
-        d.add(new ChangerCouleur("#cc0000"));
-        d.add(new Dessiner(c));
-        d.add(new ChangerCouleur("#000000"));
-        d.add(new Etiqueter("Cercle",5,c));
-
-
-        Segment s = new Segment(new Point(20,20),new Point(200,200));
-        d.add(new Dessiner(s));
-
-        Point p = new Point(100,50);
-        d.add(new Dessiner(p));
-
-        output(d,"SVG");
-        output(d,"VML");
-
-    }
-
+    /**
+     * Test des fonctions
+     */
     private static void logo(){
         Dessin d = new Dessin("logo",1000,1000);
 
@@ -88,6 +77,9 @@ public class Main {
         d.add(new Dessiner(droit));
         d.add(new Dessiner(ddroit));
         d.add(new Dessiner(ggauche));
+
+        Dessin d2 = new Dessin("partieDeLogo",1000,1000);
+
         int i = 0;
         For forr = new For(p -> new Cercle(new Point(500, 300+ 200* p), 100/(p+1)), p -> {
             ArrayList<IOrdre> ordress = new ArrayList<IOrdre>();
@@ -95,7 +87,10 @@ public class Main {
             ordress.add(new Dessiner(p));
             return ordress;
         }, i, p -> p < 3);
-        d.add(forr);
+        d2.add(forr);
+
+        d.add(new Inserer(d,d2,100,new Point(0,0)));
+
 
         output(d,"SVG");
         output(d,"VML");
