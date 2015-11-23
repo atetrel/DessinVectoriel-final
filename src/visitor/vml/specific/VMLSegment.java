@@ -28,7 +28,7 @@ public class VMLSegment extends VMLSpecifc {
         Point p1 = s.getDepart();
         Point p2 = s.getArrivee();
 
-        contenu += "from=\""+p1.getAbscisse()+","+p1.getOrdonnee()+"\n to=\""+p2.getAbscisse()+","+p2.getOrdonnee()+"\">\n";
+        contenu += "from=\""+p1.getAbscisse()+","+p1.getOrdonnee()+"\n to=\""+p2.getAbscisse()+","+p2.getOrdonnee()+"\"\n";
 
         contenu+= this.addParameters(s.getParameters());
 
