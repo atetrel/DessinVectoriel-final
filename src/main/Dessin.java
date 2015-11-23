@@ -41,11 +41,12 @@ public class Dessin {
         return ordres;
     }
 
-    public Dessin(String name, int width, int height) {
+    public Dessin(String name, int height, int width) {
         this.name = name;
         this.width = width;
         this.height = height;
         this.ordres = new ArrayList<IOrdre>();
+
     }
 
     public void add (IOrdre f) {
@@ -55,11 +56,11 @@ public class Dessin {
     void draw (FigureVisitor fv) {
 
         FileHandler fh = new FileHandler(fv.getClass().getSimpleName().toLowerCase());
-        fv.initierEcriture();
+        fv.initierEcriture(this);
         for (IOrdre o : ordres) {
             o.executer(fv); // Ceci écrit déjà dans le fichier le contenu
         }
-        fv.finirEcriture();
+        fv.finirEcriture(this);
         fh.close();
     }
 

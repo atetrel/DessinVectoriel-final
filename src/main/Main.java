@@ -19,14 +19,27 @@ import java.util.ArrayList;
  */
 public class Main {
 
-    private static void testAngelin(){
-        Dessin d = new Dessin("test",200,200);
+    private static FigureVisitor createVisitor(String s){
+        String language = "visitor."+s.toLowerCase()+"."+s;
+        try {
+            return (FigureVisitor) Class.forName(language).newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-        int x = 60;
-        int y = 60;
+    private static void testAngelin(){
+        Dessin d = new Dessin("test",300,200);
+
+        int x = 100;
+        int y = 100;
         double rayon = 20;
-        Point centre = new Point (x,y);
-        Cercle c = new Cercle(centre, rayon);
+        Cercle c = new Cercle(new Point (x,y), rayon);
 
 
         d.add(new Remplir(c,"#0000ff"));
@@ -34,23 +47,13 @@ public class Main {
         d.add(new Dessiner(c));
         d.add(new ChangerCouleur("#000000"));
 
-        Etiquette e = new Etiquette("Blabla",5,centre);
-        d.add(new Dessiner(e));
+        d.add(new Etiqueter("Cercle",5,c));
 
-        d.add(new Etiqueter("Cercle",5,e));
 
         //EXEMPLE : comment appeler un certain langage par une string passée au main.
-//        String s = args[0];
-//        String language = "visitor."+s.toLowerCase()+"."+s;
-//        FigureVisitor newType = (FigureVisitor) Class.forName(language).newInstance();
+        FigureVisitor fv = createVisitor("SVG");
+        d.draw(fv);
 
-
-        FigureVisitor type = new SVG(d);
-
-        FigureVisitor type2 = new VML();
-
-        d.draw(type);
-        d.draw(type2);
     }
 
 

@@ -1,6 +1,7 @@
 package visitor;
 
 import figure.Figure;
+import main.Dessin;
 import outils.FileHandler;
 
 import java.util.HashMap;
@@ -9,6 +10,7 @@ import java.util.HashMap;
  * Created by tetrel on 17/11/15.
  */
 public abstract class FigureVisitor {
+
 
     public abstract String getEntete();
 
@@ -34,8 +36,8 @@ public abstract class FigureVisitor {
         }
     }
 
-    public abstract void initierEcriture();
-    public abstract void finirEcriture();
+    public abstract void initierEcriture(Dessin d);
+    public abstract void finirEcriture(Dessin d);
 
     public void ecrireDansFichier(String content){
         FileHandler.STATIC_ACCESS.ecrireDansFichier(content);

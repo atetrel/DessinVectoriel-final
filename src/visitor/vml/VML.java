@@ -2,6 +2,7 @@ package visitor.vml;
 
 
 import figure.Figure;
+import main.Dessin;
 import visitor.FigureVisitor;
 
 /**
@@ -35,12 +36,12 @@ public class VML extends FigureVisitor {
     }
 
     @Override
-    public void initierEcriture() {
+    public void initierEcriture(Dessin d) {
         this.ecrireDansFichier(getEntete());
     }
 
     @Override
-    public void finirEcriture() {
+    public void finirEcriture(Dessin d) {
         this.ecrireDansFichier(getPied());
     }
 }
