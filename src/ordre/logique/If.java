@@ -3,6 +3,7 @@ package ordre.logique;
 import ordre.IOrdre;
 import visitor.FigureVisitor;
 
+import java.util.ArrayList;
 import java.util.function.Predicate;
 
 /**
@@ -10,23 +11,31 @@ import java.util.function.Predicate;
  */
 public class If extends IOrdreLogique {
 
-    private IOrdre ordre;
+    private ArrayList<IOrdre> ordre;
     private boolean condition;
-    private IOrdre ordreElse;
+    private ArrayList<IOrdre> ordreElse;
 
-    public If(IOrdre ordreIf,IOrdre ordreElse, boolean condition) {
-        this.ordre = ordreIf;
-        this.ordreElse = ordreElse;
+    public If(ArrayList<IOrdre> ordre, boolean condition, ArrayList<IOrdre> ordreElse) {
+        this.ordre = ordre;
         this.condition = condition;
+        this.ordreElse = ordreElse;
     }
 
     @Override
+    /**
+     * methode executer qui applique la methode executer de l'interface IOrdre sur l'ordre this.ordre ou sur ordreElse
+     * selon si this.condition est vrai ou faux
+     * @param fv c'est le FigureVisitor qui est passe en argument dans la methode draw de Dessin
+     * */
     public void executer(FigureVisitor fv) {
         if (condition) {
-            this.ordre.executer(fv);
+            for(IOrdre o : ordre)
+                o.executer(fv);
         }
         else {
-            ordreElse.executer(fv);
+            for (IOrdre o : ordreElse) {
+                o.executer(fv);
+            }
         }
     }
 }
