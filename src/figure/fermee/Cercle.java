@@ -16,7 +16,7 @@ public class Cercle extends FigureFermee {
         super();
         this.centre = centre;
         this.rayon = rayon;
-        this.pointDetiquetage = new Point(centre.getAbscisse()-0.5*rayon,centre.getOrdonnee()-0.5*rayon);
+        this.pointDetiquetage = new Point(centre.getAbscisse()+0.5*rayon,centre.getOrdonnee()-rayon);
     }
 
     public Point getCentre() {

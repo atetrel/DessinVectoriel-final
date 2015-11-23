@@ -32,7 +32,10 @@ public class SVG extends FigureVisitor {
                 +GUILL+height+GUILL+
                 " width="+
                 GUILL+width+GUILL+
-                ">"+System.lineSeparator();
+                " xmlns="+GUILL+"http://www.w3.org/2000/svg"+GUILL+
+                " viewBox="+GUILL+"0 0 "+height+
+                " "+width+GUILL+
+                " > "+System.lineSeparator();
         this.contenu = "";
         this.pied = System.lineSeparator()+"</svg>";
     }

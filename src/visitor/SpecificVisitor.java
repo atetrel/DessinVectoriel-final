@@ -29,7 +29,6 @@ public abstract class SpecificVisitor {
         String languageName = getLanguage();
         for(String key : h.keySet()) {
             String specificOrder = "visitor." + languageName.toLowerCase() + ".orders." + languageName + key;
-            System.out.println(specificOrder);
             Object myInstance = null;
             try {
 

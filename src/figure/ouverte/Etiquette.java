@@ -15,6 +15,7 @@ public class Etiquette extends FigureOuverte {
         this.text = text;
         this.fontSize = fontSize;
         this.anchor = anchor;
+        this.pointDetiquetage = new Point(anchor.getAbscisse()+5,anchor.getOrdonnee()-2*fontSize);
     }
 
     public String getText() {

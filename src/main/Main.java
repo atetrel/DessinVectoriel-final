@@ -1,6 +1,7 @@
 package main;
 
 import figure.fermee.Cercle;
+import figure.ouverte.Etiquette;
 import figure.ouverte.Point;
 
 import ordre.*;
@@ -18,24 +19,25 @@ import java.util.ArrayList;
  */
 public class Main {
 
-    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+    private static void testAngelin(){
+        Dessin d = new Dessin("test",200,200);
 
-        Dessin d = new Dessin("test",10,10);
-
-        int x = 0;
-        int y = 0;
-        double rayon = 10;
+        int x = 60;
+        int y = 60;
+        double rayon = 20;
         Point centre = new Point (x,y);
         Cercle c = new Cercle(centre, rayon);
 
-        int i = 0;
 
-        d.add(new ChangerCouleur("rouge"));
+        d.add(new Remplir(c,"#0000ff"));
+        d.add(new ChangerCouleur("#cc0000"));
         d.add(new Dessiner(c));
-        d.add(new ChangerCouleur("noir"));
-        d.add(new Etiqueter("Cercle",5,c));
+        d.add(new ChangerCouleur("#000000"));
 
+        Etiquette e = new Etiquette("Blabla",5,centre);
+        d.add(new Dessiner(e));
 
+        d.add(new Etiqueter("Cercle",5,e));
 
         //EXEMPLE : comment appeler un certain langage par une string passée au main.
 //        String s = args[0];
@@ -43,26 +45,19 @@ public class Main {
 //        FigureVisitor newType = (FigureVisitor) Class.forName(language).newInstance();
 
 
-        FigureVisitor type = new SVG();
-      //  ArrayList<Integer> liste = new ArrayList<Integer>();
-        //liste.add(1);
-        //liste.add(2);
-        //liste.add(3);
+        FigureVisitor type = new SVG(d);
 
-        While whilee = new While(new Remplir(c,"bleu"),p -> p<5,0);
-        whilee.executer(type);
-
-        //If iff = new If(new Remplir(c,"rouge"),new Remplir(c,"bleu"),false);
-        //iff.executer(type);
-//        For forr = new For(new Remplir(c,"bleu"),i,p -> p<5);
-        //forr.executer(type);
-//        FigureVisitor type2 = new VML();
+        FigureVisitor type2 = new VML();
 
         d.draw(type);
-//        d.draw(type2);
+        d.draw(type2);
+    }
 
 
 
+    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+
+        testAngelin();
 
 
     }

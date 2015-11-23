@@ -11,7 +11,7 @@ public class Crayon implements IOutils {
     private String couleur;
     private int largeur;
     public static final String DEFAULT_COULEUR = "000000";
-    public static final int DEFAULT_LARGEUR = 5;
+    public static final int DEFAULT_LARGEUR = 2;
 
     private static Crayon INSTANCE;
 
