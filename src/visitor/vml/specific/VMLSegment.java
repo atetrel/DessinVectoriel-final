@@ -25,11 +25,6 @@ public class VMLSegment extends VMLSpecifc {
 
         String contenu = "";
 
-        contenu += "<v:line \n";
-
-
-
-
         Point p1 = s.getDepart();
         Point p2 = s.getArrivee();
 
@@ -37,7 +32,7 @@ public class VMLSegment extends VMLSpecifc {
 
         contenu+= this.addParameters(s.getParameters());
 
-        return contenu += "</v:line>\n";
+        return this.VMLStringAutomation("line",contenu);
 
     }
 }

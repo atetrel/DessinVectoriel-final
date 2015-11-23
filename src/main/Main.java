@@ -89,6 +89,8 @@ public class Main {
         d.add(new Dessiner(ggauche));
         output(d,"SVG");
 
+        output(d,"VML");
+
     }
 
 

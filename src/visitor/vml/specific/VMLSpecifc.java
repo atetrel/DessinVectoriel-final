@@ -31,11 +31,15 @@ public abstract class VMLSpecifc extends SpecificVisitor {
     }
 
     public String handleCrayon(){
-        return this.handleCrayonColor()+" stroke-width=\""+ Crayon.getDefaultCrayon().getLargeur()+"\" ";
+        return this.handleCrayonColor()+" strokeweight=\""+ Crayon.getDefaultCrayon().getLargeur()+"\" ";
     }
 
     public String handleCrayonColor(){
         return "strokecolor=\""+ Crayon.getDefaultCrayon().getCouleur()+"\"";
+    }
+
+    public String VMLStringAutomation(String type,String specific){
+        return VMLQuickOpen(type)+specific+handleCrayon()+VMLQuickClose(type)+System.lineSeparator();
     }
 
 
