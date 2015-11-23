@@ -9,6 +9,8 @@ import java.util.Map;
 
 /**
  * Created by tetrel on 17/11/15.
+ * Interface des figures.
+ * Permet de verifier l'implementation du patron visiteur.
  */
 public interface IFigure {
 
@@ -16,7 +18,7 @@ public interface IFigure {
 
     void changeSize(double percentage);
 
-    public void translate(double abs,double ord);
+    void translate(double abs,double ord);
 
 
 }
