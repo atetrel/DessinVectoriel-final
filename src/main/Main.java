@@ -36,8 +36,7 @@ public class Main {
 
     private static void output(Dessin d,String s){
         FigureVisitor fv = createVisitor(s);
-
-
+        d.draw(fv);
     }
 
     private static void testAngelin(){
@@ -58,6 +57,7 @@ public class Main {
 
 
         output(d,"SVG");
+
 
     }
 
