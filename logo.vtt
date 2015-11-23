@@ -1,0 +1,26 @@
+Creer Dessin logo : 1000 1000
+Creer Point centre : 500 500
+Creer Cercle grand :centre 450
+Remplir grand : 0000ff dans logo
+Dessiner grand dans logo
+Creer Cercle petit :centre 380
+Remplir petit dans logo
+Crayon : cc0000 5
+Dessiner petit dans logo
+Creer Point bas : 500 800
+Segments :  | gauche | centre | (200,200) |
+            | droit  | centre | (800,200) |
+            | ggauche| bas    | (200,200) |
+            | ddroit | bas    | (800,200) |
+Crayon : cc0000 3
+Dessiner gauche dans logo
+Dessiner droit dans logo
+Dessiner ggauche dans logo
+Dessiner ddroit dans logo
+Creer dessin partieDeLogo : 1000,1000
+For {i=0 | i<3} : | Creer Cercle c : (Creer Point p : 500 300+200*i) 100/(i+1)
+                  | Remplir c : 66b2cc
+                  | Dessiner c dans partieDeLogo
+Inserer partieDeLogo dans logo : 100% (Creer Point p : 0 0)
+logo en SVG
+logo en VML

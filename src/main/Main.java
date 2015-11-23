@@ -64,12 +64,12 @@ public class Main {
         d.add(new Dessiner(grand));
         Cercle petit = new Cercle(centre,380);
         d.add(new ChangerCouleur("#cc0000"));
-        d.add(new ChangerEpaisseur(5));
         d.add(new Remplir(petit,"#ffffff"));
+        d.add(new ChangerEpaisseur(5));
         d.add(new Dessiner(petit));
+        Point bas = new Point(500,800);
         Segment gauche = new Segment(centre,new Point(200,200));
         Segment droit = new Segment(centre,new Point(800,200));
-        Point bas = new Point(500,800);
         Segment ggauche = new Segment(bas,new Point(200,200));
         Segment ddroit = new Segment(bas,new Point(800,200));
         d.add(new ChangerEpaisseur(3));

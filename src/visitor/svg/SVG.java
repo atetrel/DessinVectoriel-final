@@ -25,6 +25,7 @@ public class SVG extends FigureVisitor {
         this(100,100);
     }
 
+
     public SVG(int height,int width) {
         this.entete = "<svg" +
                 " height="
