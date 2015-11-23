@@ -23,11 +23,11 @@ public abstract class VMLSpecifc extends SpecificVisitor {
     }
 
     public String VMLQuickOpen(String type){
-        return "<v:"+type+">\n";
+        return "<v:"+type+"\n";
     }
 
     public String VMLQuickClose(String type){
-        return"\n</v:"+type+">";
+        return">\n</v:"+type+">";
     }
 
     public String handleCrayon(){
